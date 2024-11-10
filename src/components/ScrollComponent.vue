@@ -1,11 +1,10 @@
 <template>
-  <div :id="id">
+  <div ref="id">
     <slot />
   </div>
 </template>
 
 <script lang="ts">
-let componentNumber = 0;
 const debounce = (fn: (...args: any[]) => any | void, time = 300) => {
   let id = 0;
   return (...args: any[]) => {
@@ -21,18 +20,16 @@ const debounce = (fn: (...args: any[]) => any | void, time = 300) => {
 export default {
   emits: ["load"],
   setup(props, ctx) {
-    const id = ref("");
-    onBeforeMount(() => {
-      componentNumber++;
-      id.value = "scroll-component" + componentNumber;
-    });
+    const id = ref<HTMLElement | null>(null);
 
     let dom: HTMLElement | null = null;
     let loading = false;
 
     const onScroll = (e: any) => {
       const tempDom = dom!;
+
       if (tempDom.scrollHeight - tempDom.clientHeight - tempDom.scrollTop < 1) {
+        // 滚到底啦
         if (loading === false) {
           loading = true;
           ctx.emit("load", () => {
@@ -45,13 +42,12 @@ export default {
     const debounceScroll = debounce(onScroll);
 
     onMounted(() => {
-      const tempDom = document.getElementById(id.value)!;
-      dom = tempDom;
+      dom = id.value!;
       dom.addEventListener("scroll", debounceScroll);
     });
 
     onUnmounted(() => {
-      dom && dom.removeEventListener("scroll", debounceScroll);
+      dom && dom.removeEventListener("scroll", debounceScroll); //放置内存泄漏
     });
 
     return { id };

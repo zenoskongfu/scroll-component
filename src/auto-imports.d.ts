@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     ScrollComponent: typeof import('./components/ScrollComponent.vue')['default']
     SelectDemo: typeof import('./components/SelectDemo.vue')['default']
   }
