@@ -27,6 +27,7 @@ export default {
 
     const onScroll = (e: any) => {
       const tempDom = dom!;
+      if (tempDom.scrollHeight === tempDom.clientHeight) return;
 
       if (tempDom.scrollHeight - tempDom.clientHeight - tempDom.scrollTop < 1) {
         // 滚到底啦
