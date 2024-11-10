@@ -27,6 +27,7 @@ export default {
 
     const onScroll = (e: any) => {
       const tempDom = dom!;
+      // 父元素和子元素的高度一致，不触发load函数
       if (tempDom.scrollHeight === tempDom.clientHeight) return;
 
       if (tempDom.scrollHeight - tempDom.clientHeight - tempDom.scrollTop < 1) {
