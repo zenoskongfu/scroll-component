@@ -1,6 +1,33 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// const listData = ref([
+//   { name: "zenos 1" },
+//   { name: "blue 1" },
+//   { name: "zenos 2" },
+//   { name: "blue 2" },
+// ]);
+</script>
 
-<template><SelectDemo /></template>
+<template>
+  <!-- <ListDemo /> -->
+
+  <!-- 
+  <SlidingMove>
+    <div
+      style="width: 200px; height: 200px; background-color: antiquewhite"
+    ></div>
+  </SlidingMove> 
+  -->
+
+  <SlidingList listData="listData">
+    <template #default="{ data }">
+      <div class="list-item">{{ data.name }}</div>
+    </template>
+
+    <template #delete>
+      <div>delete</div>
+    </template>
+  </SlidingList>
+</template>
 
 <style scoped>
 .logo {
