@@ -15,6 +15,36 @@
         />
       </ScrollComponent>
     </el-select>
+    <el-select
+      v-model="value"
+      placeholder="Select"
+      size="large"
+      style="width: 240px"
+    >
+      <ScrollComponent @load="handleLoad" style="overflow: auto; height: 100px">
+        <el-option
+          v-for="item in optionsRef"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </ScrollComponent>
+    </el-select>
+    <el-select
+      v-model="value"
+      placeholder="Select"
+      size="large"
+      style="width: 240px"
+    >
+      <ScrollComponent @load="handleLoad" style="overflow: auto; height: 100px">
+        <el-option
+          v-for="item in optionsRef"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </ScrollComponent>
+    </el-select>
   </div>
 </template>
 
@@ -46,7 +76,15 @@ const options = [
 
 const optionsRef = ref(options);
 const index = ref(6);
-const handleLoad = (callback: () => void) => {
+const sleep = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(null);
+    }, 1500);
+  });
+};
+const handleLoad = async (callback: () => void) => {
+  await sleep();
   console.log("load");
   index.value++;
   const item = {
@@ -54,6 +92,7 @@ const handleLoad = (callback: () => void) => {
     value: index.value + "",
   };
   optionsRef.value.push(item);
+  // await fetch('/data');
   callback && callback();
 };
 </script>
