@@ -1,35 +1,25 @@
 <script setup lang="ts">
-// const listData = ref([
-//   { name: "zenos 1" },
-//   { name: "blue 1" },
-//   { name: "zenos 2" },
-//   { name: "blue 2" },
-// ]);
+const listData = ref([
+  { name: "zenos 1" },
+  { name: "blue 1" },
+  { name: "zenos 2" },
+  { name: "blue 2" },
+]);
 </script>
 
 <template>
-  <!-- <ListDemo /> -->
-
-  <!-- 
-  <SlidingMove>
-    <div
-      style="width: 200px; height: 200px; background-color: antiquewhite"
-    ></div>
-  </SlidingMove> 
-  -->
-
-  <SlidingList listData="listData">
+  <SlidingList :listData="listData" class="sliding-list">
     <template #default="{ data }">
-      <div class="list-item">{{ data.name }}</div>
+      <div class="list-item list-item-2" @click="">{{ data.name }}</div>
     </template>
 
     <template #delete>
-      <div>delete</div>
+      <div class="delete-slot" @click="">123</div>
     </template>
   </SlidingList>
 </template>
 
-<style scoped>
+<style>
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -41,5 +31,10 @@
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.sliding-list {
+  box-shadow: 0 0 4px 2px lightgray;
+  border-radius: 4px;
 }
 </style>

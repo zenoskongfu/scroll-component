@@ -8,13 +8,13 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ListDemo: typeof import('./components/ListDemo.vue')['default']
-    ScrollComponent: typeof import('./components/ScrollComponent.vue')['default']
-    SelectDemo: typeof import('./components/SelectDemo.vue')['default']
+    ScrollComponent: typeof import('./components/ScrollComponent/ScrollComponent.vue')['default']
+    SelectDemo: typeof import('./components/ScrollComponent/SelectDemo.vue')['default']
     SlidingBase: typeof import('./components/SlidingComponent/SlidingBase.vue')['default']
     SlidingComponent: typeof import('./components/SlidingComponent.vue')['default']
     SlidingList: typeof import('./components/SlidingComponent/SlidingList.vue')['default']
     SlidingMove: typeof import('./components/SlidingComponent/SlidingMove.vue')['default']
     SlidingX: typeof import('./components/SlidingComponent/SlidingX.vue')['default']
-    Util: typeof import('./components/util')['default']
+    Util: typeof import('./components/SlidingComponent/util')['default']
   }
 }

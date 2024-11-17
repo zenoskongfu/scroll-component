@@ -1,12 +1,6 @@
 <script setup lang="ts">
-const listData = ref([
-  { name: "zenos 1" },
-  { name: "blue 1" },
-  { name: "zenos 2" },
-  { name: "blue 2" },
-]);
+const props = defineProps(["listData"]);
 
-// const listRef = ref();
 const revertFnRef = ref();
 const moveToEnd = (revertFn: Function) => {
   if (
@@ -14,7 +8,6 @@ const moveToEnd = (revertFn: Function) => {
     revertFnRef.value !== revertFn
   ) {
     revertFnRef.value();
-    console.log("move end", typeof revertFn);
   }
   revertFnRef.value = revertFn;
 };
@@ -24,7 +17,7 @@ const moveToEnd = (revertFn: Function) => {
   <div class="list" style="overflow: hidden">
     <div
       class="list-item-wrapper"
-      v-for="(item, index) in listData"
+      v-for="(item, index) in props.listData"
       :key="index"
     >
       <div
@@ -39,7 +32,7 @@ const moveToEnd = (revertFn: Function) => {
         </SlidingMove>
       </div>
       <div class="delete-button">
-        <slot name="delete"> DELETE </slot>
+        <slot name="delete">DELETE</slot>
       </div>
     </div>
   </div>
@@ -47,10 +40,6 @@ const moveToEnd = (revertFn: Function) => {
 
 <style lang="scss">
 .list {
-  box-shadow: 0 0 4px 1px lightgray;
-  border-radius: 4px;
-  background-color: red;
-
   .list-item {
     width: 300px;
     height: 60px;
@@ -74,6 +63,7 @@ const moveToEnd = (revertFn: Function) => {
       color: white;
       font-size: 12px;
       user-select: none;
+      background-color: red;
     }
   }
 }

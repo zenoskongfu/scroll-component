@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isInMiddle, whichMoreCloser } from "../util";
+import { isInMiddle, whichMoreCloser } from "./util";
 
 const props = defineProps({
   direction: { type: String, default: "left" },
