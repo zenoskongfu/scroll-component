@@ -20,19 +20,20 @@ const moveToEnd = (revertFn: Function) => {
       v-for="(item, index) in props.listData"
       :key="index"
     >
-      <div
-        style="
-          z-index: 1;
-          position: relative;
-          border-bottom: 1px solid lightgray;
-        "
+      <SlidingMove
+        direction="left"
+        end="20%"
+        :move-to-end="moveToEnd"
+        style="z-index: 1; position: relative"
       >
-        <SlidingMove direction="left" end="20%" :move-to-end="moveToEnd">
-          <slot :data="item"></slot>
-        </SlidingMove>
-      </div>
+        <slot :data="item"></slot>
+      </SlidingMove>
       <div class="delete-button">
-        <slot name="delete"><div class="delete-text">DELETE</div></slot>
+        <slot name="delete"
+          ><div class="delete-text">
+            <slot name="delete-text">DELETE</slot>
+          </div></slot
+        >
       </div>
     </div>
   </div>
