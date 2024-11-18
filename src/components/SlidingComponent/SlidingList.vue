@@ -32,7 +32,7 @@ const moveToEnd = (revertFn: Function) => {
         </SlidingMove>
       </div>
       <div class="delete-button">
-        <slot name="delete">DELETE</slot>
+        <slot name="delete"><div class="delete-text">DELETE</div></slot>
       </div>
     </div>
   </div>
@@ -59,11 +59,18 @@ const moveToEnd = (revertFn: Function) => {
       top: 0;
       height: 100%;
       width: 20%;
-      line-height: 60px;
       color: white;
       font-size: 12px;
       user-select: none;
       background-color: red;
+    }
+
+    .delete-text {
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
     }
   }
 }

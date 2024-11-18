@@ -37,4 +37,8 @@ const listData = ref([
   box-shadow: 0 0 4px 2px lightgray;
   border-radius: 4px;
 }
+
+.delete-slot {
+  line-height: 60px;
+}
 </style>

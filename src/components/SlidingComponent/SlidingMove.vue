@@ -94,7 +94,7 @@ const mouseMove = (position: { dx: number; dy: number }) => {
   <SlidingBase
     @move="mouseMove"
     @move-end="mouseEnd"
-    style="transition: all 0.1s ease"
+    style="transition: all 0s ease"
     ref="containerRef"
   >
     <slot></slot>
