@@ -7,9 +7,22 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ChatAgree: typeof import('./components/ChatList/Agree/ChatItemAgree.vue')['default']
+    ChatDemo: typeof import('./components/ChatList/ChatDemo.vue')['default']
+    ChatItem: typeof import('./components/ChatList/component/ChatItem.vue')['default']
+    ChatItemAdd: typeof import('./components/ChatList/Add/ChatItemAdd.vue')['default']
+    ChatItemAgree: typeof import('./components/ChatList/Agree/ChatItemAgree.vue')['default']
+    ChatItemFriend: typeof import('./components/ChatList/Friend/ChatItemFriend.vue')['default']
+    ChatList: typeof import('./components/ChatList/ChatList.vue')['default']
+    ChatListAgree: typeof import('./components/ChatList/Agree/ChatListAgree.vue')['default']
+    ChatListFriend: typeof import('./components/ChatList/Friend/ChatListFriend.vue')['default']
+    Demo: typeof import('./components/SlidingComponent/SlidingDemo.vue')['default']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ScrollComponent: typeof import('./components/ScrollComponent/ScrollComponent.vue')['default']
     SelectDemo: typeof import('./components/ScrollComponent/SelectDemo.vue')['default']
     SlidingBase: typeof import('./components/SlidingComponent/SlidingBase.vue')['default']
+    SlidingDemo: typeof import('./components/SlidingComponent/SlidingDemo.vue')['default']
     SlidingList: typeof import('./components/SlidingComponent/SlidingList.vue')['default']
     SlidingMove: typeof import('./components/SlidingComponent/SlidingMove.vue')['default']
   }
